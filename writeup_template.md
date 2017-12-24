@@ -21,11 +21,19 @@ The goals / steps of this project are the following:
 
 [image1]: ./output_images/original.jpg "Original"
 [image2]: ./output_images/undistorted.jpg "Undistorted"
-[image3]: ./output_images/binary.jpg "Color Gradient Binary"
-[image4]: ./output_images/corners.jpg "Corners"
-[image5]: ./output_images/warped.jpg "Warp Example"
-[image6]: ./output_images/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[image3]: ./output_images/undistorted_image.jpg "Undistorted camera Image"
+[image4]: ./output_images/binary.jpg "Color Gradient Binary"
+[image5]: ./output_images/combined_binary.jpg "Combined Binary"
+[image6]: ./output_images/corners.jpg "Corners"
+[image7]: ./output_images/warped.jpg "Warp Example"
+[image8]: ./output_images/warped_bin.jpg "Warped ROI"
+[image9]: ./output_images/histogram.jpg "Find Lanes"
+[image10]: ./output_images/sliding_fit_vis.jpg "Sliding Fit"
+[image11]: ./output_images/sliding_search_vis.jpg "Sliding Search"
+[image12]: ./output_images/measure_curve_vis.jpg "Measure Curve"
+[image13]: ./output_images/highlight_lane_vis.jpg "Draw Lane"
+[video1]: ./output_images/project_video_output.mp4 "Video"
+[video2]: ./output_images/project_video_challenge_output.mp4 "Challenge"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
