@@ -104,7 +104,7 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 #### 1. Video pipeline output of Project video.
 
-The video pipeline created performs reasonably well on the project video [link to my video result](./output/project_video_output.mp4)
+The video pipeline created performs reasonably well on the project video [link to my video result](output/project_video_output.mp4)
 
 ---
 
