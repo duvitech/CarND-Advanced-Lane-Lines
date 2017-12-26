@@ -19,14 +19,13 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./output_images/original.jpg "Original"
-[image2]: ./output_images/undistorted.jpg "Undistorted"
-[image3]: ./output_images/undistorted_image.jpg "Undistorted camera Image"
-[image4]: ./output_images/binary.jpg "Color Gradient Binary"
+[image1]: ./output_images/camera_cal.jpg "Camera Calibration"
+[image2]: ./output_images/undistorted_image.jpg "Undistorted camera Image"
+[image3]: ./output_images/binary.jpg "Binary"
 [image5]: ./output_images/combined_binary.jpg "Combined Binary"
 [image6]: ./output_images/corners.jpg "Corners"
 [image7]: ./output_images/warped.jpg "Warp Example"
-[image8]: ./output_images/warped_bin.jpg "Warped ROI"
+[image8]: ./output_images/warped_roi_bin.jpg "Warped ROI"
 [image9]: ./output_images/histogram.jpg "Find Lanes"
 [image10]: ./output_images/sliding_fit_vis.jpg "Sliding Fit"
 [image11]: ./output_images/sliding_search_vis.jpg "Sliding Search"
@@ -52,22 +51,21 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
 ![alt text][image1]
-![alt text][image2]
 
 I save the calibration and distortion coefficients to a file so that they can be read in by future porgrams and used to un-distort the images without having to re-run the camera calibration prcess again.
 
 ### Pipeline (single images)
 
-#### 1. Provide an example of a distortion-corrected image.
+#### 1. APplication of Camera Calibration and Distortion Coefficients.
 
 To demonstrate this step, I have applied the correction to the below captured test image:
+![alt text][image2]
+
+#### 2. Image Thresholding.
+
+To make lane detection more robust I perform gradient and color thresholding to generate a binary image which helps the lane lines to stand out. Teh combination of color and gradient thresholds to generate a binary image can be found at lines 94 through 120 in `processing_pipeline.ipynb`.  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+
 ![alt text][image3]
-
-#### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
-
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines 94 through 120 in `processing_pipeline.ipynb`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
-
-![alt text][image4]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -104,14 +102,12 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+#### 1. Video pipeline output of Project video.
 
-Here's a [link to my video result](./project_video.mp4)
+The video pipeline created performs reasonably well on the project video [link to my video result](./project_video.mp4)
 
 ---
 
 ### Discussion
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+My first pass at building the video pipeline showed that shadows would cause the algorithm to lose track of the lane detection.  Filtering the image a little more made the algorithm work well on the project video.  This solution will not work as well where the captured images of the road are less clear or lane markers are not as well defined.  The algorithm would certainly have issues with varying weather conditions and the amount of daylight.  To create a more robust algorithm would require to re-think the histogram algorithm for determining lane lines and use an approach that takes more variables into consideration to determine where the lane exists in the image.  Adaptive color thresholding can also be used to adapt the lane detection to varying degrees of lighting which will also increase the reliability of the algorithm to determine where the lane exists in the image.  
