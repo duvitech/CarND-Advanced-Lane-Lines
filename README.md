@@ -93,27 +93,29 @@ We perform a test on a different test image with a curved lane
 
 #### 4. Detect lane pixels and fit to find the lane boundary.
 
-Using the preprocessed image captured, I use a histogram to detect lane line position in teh image, from the peaks we can determin leftx, rightx and midpoint approximations of the lanes.
+Using the preprocessed image captured, I use a histogram in cell 4 of `processing_pipeline.ipynb` notebook to detect lane line position in the image.  The peaks of the histogram are used to approximate leftx, rightx and midpoint the lanes in the already filtered image.
 
 ![alt text][image9]
 
-Using a sliding window I can fit a polynomial to the lane lines in the image. The image below demonstrates this algorithm visually with the green visualizing the window boundaries and the red pixels showing the hot pixels for left lane and blue pixels showing the hot pixels for a right lane.  We have yellow line showing the lane:
+Using a sliding window in cell 5 of `processing_pipeline.ipynb` notebook, I can fit a polynomial to the lane lines in the image. The image below demonstrates this algorithm visually with the green visualizing the window boundaries and the red pixels showing the hot pixels for left lane and blue pixels showing the hot pixels for a right lane.  We have yellow line showing the lane:
 
 ![alt text][image4]
 
-Once we know where the lines are we can skip the sliding window and narrow the serch area down for the lines. This is similar to using a customized region of interest for each frame of video and should help track lane lines more accurately through curves and other trick conditions. The image below demonstrates this showing the serach area shaded in green:
+Once we know where the lines are we can skip the sliding window and narrow the serch area down for the lines shown in the code found in cell 6 of `processing_pipeline.ipynb` notebook. This is similar to using a customized region of interest for each frame of video and should help track lane lines more accurately through curves and other trick conditions. The image below demonstrates this showing the serach area shaded in green:
 
 ![alt text][image10]
 
-#### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+#### 5. Determine the curvature of the lane and vehicle position with respect to center.
 
 I did this in lines # through # in my code in `my_other_file.py`
 
-#### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+![alt text][image12]
+
+#### 6. Warp the detected lane boundaries back onto the original image.
 
 I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
 
-![alt text][image6]
+![alt text][image13]
 
 ---
 
