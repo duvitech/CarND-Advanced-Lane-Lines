@@ -105,17 +105,24 @@ Once we know where the lines are we can skip the sliding window and narrow the s
 
 ![alt text][image10]
 
+The final algorithm used to find the lane lines is contained in the function find_lane_lines() located in cell 10 of `processing_pipeline.ipynb` notebook.
+
 #### 5. Determine the curvature of the lane and vehicle position with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+In get_curvature() found in in my code located in cell 10 of `processing_pipeline.ipynb` notebook, I calculate the curvature of the lane and vehicle position with respect to center by using the fitted polynomial indicating the lane line.
 
 ![alt text][image12]
 
 #### 6. Warp the detected lane boundaries back onto the original image.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+I implemented this step in get_curvature() found in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
 
 ![alt text][image13]
+
+```python
+left_curverad = ((1 + (2*left_fit_cr[0]*y_eval*ym_per_pix + left_fit_cr[1])**2)**1.5) / np.absolute(2*left_fit_cr[0])
+right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*ym_per_pix + right_fit_cr[1])**2)**1.5) / np.absolute(2*right_fit_cr[0])
+```
 
 ---
 
