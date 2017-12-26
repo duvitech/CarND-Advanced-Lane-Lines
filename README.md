@@ -22,6 +22,7 @@ The goals / steps of this project are the following:
 [image1]: ./output_images/camera_cal.jpg "Camera Calibration"
 [image2]: ./output_images/undistorted_image.jpg "Undistorted camera Image"
 [image3]: ./output_images/binary.jpg "Binary"
+[image4]: ./output_images/sliding_fit.jpg "Binary"
 [image5]: ./output_images/combined_binary.jpg "Combined Binary"
 [image6]: ./output_images/corners.jpg "Corners"
 [image7]: ./output_images/warped_roi_bin.jpg "Warp Example"
@@ -98,11 +99,11 @@ Using the preprocessed image captured, I use a histogram to detect lane line pos
 
 Using a sliding window I can fit a polynomial to the lane lines in the image. The image below demonstrates this algorithm visually with the green visualizing the window boundaries and the red pixels showing the hot pixels for left lane and blue pixels showing the hot pixels for a right lane.  We have yellow line showing the lane:
 
-![alt text][image10]
+![alt text][image4]
 
 Once we know where the lines are we can skip the sliding window and narrow the serch area down for the lines. This is similar to using a customized region of interest for each frame of video and should help track lane lines more accurately through curves and other trick conditions. The image below demonstrates this showing the serach area shaded in green:
 
-![alt text][image11]
+![alt text][image10]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
